@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Vendas - Adquira Já!</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <meta name="description" content="Adquira a API de Vendas para e-commerce por apenas R$2,99/mês. Integre facilmente com pagamento via PIX.">
+    <meta name="keywords" content="API de Vendas, e-commerce, API para lojas, pagamento PIX, integração e-commerce">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="API de Vendas">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="API de Vendas - E-commerce por R$2,99/mês">
+    <meta property="og:description" content="Gerencie sua loja online com nossa API escalável e segura. Pague via PIX e receba sua API Key por email.">
+    <meta property="og:image" content="https://i.imgur.com/hDUOFKL.png">
+    <meta property="og:url" content="https://vendas-v2.pages.dev/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="API de Vendas - E-commerce por R$2,99/mês">
+    <meta name="twitter:description" content="API para e-commerce com integração fácil e pagamento via PIX. Apenas R$2,99/mês.">
+    <meta name="twitter:image" content="https://i.imgur.com/hDUOFKL.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.imgur.com/4402hkt.png" sizes="32x32">
+
+    <title>API de Vendas - E-commerce por R$2,99/mês</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "API de Vendas para E-commerce",
+        "description": "API escalável e segura para gerenciamento de lojas online, com integração via PIX por apenas R$2,99/mês.",
+        "url": "https://vendas-v2.pages.dev/",
+        "image": "https://i.imgur.com/hDUOFKL.png",
+        "offers": {
+            "@type": "Offer",
+            "price": "2.99",
+            "priceCurrency": "BRL",
+            "priceValidUntil": "2025-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://vendas-v2.pages.dev/"
+        },
+        "brand": {
+            "@type": "Brand",
+            "name": "API de Vendas"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "API de Vendas",
+        "url": "https://vendas-v2.pages.dev/",
+        "logo": "https://i.imgur.com/hDUOFKL.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "fortes.barman@gmail.com",
+            "contactType": "customer support"
+        }
+    }
+    </script>
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- Header -->
     <header class="bg-blue-600 text-white py-6">
         <div class="container mx-auto px-4">
+            <img src="https://i.imgur.com/hDUOFKL.png" alt="Logo da API de Vendas" class="h-12 mb-4">
             <h1 class="text-3xl font-bold">API de Vendas - E-commerce</h1>
             <p class="mt-2">Gerencie seu e-commerce por apenas R$2,99/mês</p>
         </div>
@@ -19,8 +79,8 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-10">
         <!-- Features Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-6">Benefícios da Nossa API</h2>
+        <section class="mb-12" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="text-2xl font-semibold mb-6">Benefícios da Nossa API</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-medium mb-2">Escalável</h3>
@@ -38,41 +98,43 @@
         </section>
 
         <!-- Purchase Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-6">Adquira Sua API Key</h2>
+        <section class="mb-12" aria-labelledby="purchase-heading">
+            <h2 id="purchase-heading" class="text-2xl font-semibold mb-6">Adquira Sua API Key</h2>
             <div class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
                 <p class="text-lg mb-4">Por apenas <span class="font-bold">R$2,99/mês</span>, receba sua API Key por email após confirmação do pagamento.</p>
-                <div id="purchase-form">
+                <form id="purchase-form">
                     <div class="mb-4">
                         <label for="email" class="block text-sm font-medium text-gray-700">Seu Email</label>
-                        <input type="email" id="email" class="mt-1 p-2 w-full border rounded-md" required>
+                        <input type="email" id="email" class="mt-1 p-2 w-full border rounded-md" required aria-describedby="email-help">
+                        <p id="email-help" class="text-sm text-gray-500">Usaremos este email para enviar sua API Key.</p>
                     </div>
                     <div class="mb-4">
                         <label for="platform" class="block text-sm font-medium text-gray-700">Nome da Plataforma</label>
-                        <input type="text" id="platform" class="mt-1 p-2 w-full border rounded-md" required>
+                        <input type="text" id="platform" class="mt-1 p-2 w-full border rounded-md" required aria-describedby="platform-help">
+                        <p id="platform-help" class="text-sm text-gray-500">Ex.: Minha Loja Online</p>
                     </div>
-                    <button id="generate-pix" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Gerar PIX (R$2,99)</button>
-                </div>
+                    <button id="generate-pix" type="button" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Gerar PIX (R$2,99)</button>
+                </form>
                 <div id="pix-container" class="mt-4 hidden">
                     <p class="text-center text-sm text-gray-600">Escaneie o QR Code ou copie o código PIX abaixo:</p>
-                    <div id="qrcode" class="mx-auto w-48 h-48 mt-2"></div>
-                    <textarea id="pix-code" class="mt-2 w-full p-2 border rounded-md text-sm" rows="4" readonly></textarea>
+                    <div id="qrcode" class="mx-auto w-48 h-48 mt-2" aria-label="QR Code para pagamento PIX"></div>
+                    <textarea id="pix-code" class="mt-2 w-full p-2 border rounded-md text-sm" rows="4" readonly aria-label="Código PIX para pagamento"></textarea>
                     <p class="mt-2 text-sm text-gray-600">Após o pagamento, sua API Key será enviada ao email em até 24h.</p>
                 </div>
-                <p id="message" class="mt-4 text-center text-sm text-gray-600 hidden"></p>
+                <p id="message" class="mt-4 text-center text-sm text-gray-600 hidden" role="alert"></p>
             </div>
         </section>
 
         <!-- Instructions Section -->
-        <section>
-            <h2 class="text-2xl font-semibold mb-6">Como Funciona</h2>
+        <section aria-labelledby="instructions-heading">
+            <h2 id="instructions-heading" class="text-2xl font-semibold mb-6">Como Funciona</h2>
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <ol class="list-decimal list-inside space-y-2">
                     <li>Informe seu email e nome da plataforma.</li>
                     <li>Gere o PIX e realize o pagamento de R$2,99.</li>
                     <li>Aguarde a confirmação do pagamento (até 24h).</li>
                     <li>Receba sua API Key por email com instruções.</li>
-                    <li>Use a API em: <code>https://vendas-v2.discloud.app/</code></li>
+                    <li>Use a API em: <a href="https://vendas-v2.discloud.app/" class="text-blue-600 hover:underline">vendas-v2.discloud.app</a></li>
                 </ol>
             </div>
         </section>
@@ -82,12 +144,12 @@
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto px-4 text-center">
             <p>© 2025 API de Vendas. Todos os direitos reservados.</p>
-            <p>Suporte: fortes.barman@gmail.com</p>
+            <p>Suporte: <a href="mailto:fortes.barman@gmail.com" class="hover:underline">fortes.barman@gmail.com</a></p>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script>
+    <script defer>
         document.getElementById('generate-pix').addEventListener('click', async () => {
             const email = document.getElementById('email').value;
             const platform = document.getElementById('platform').value;
