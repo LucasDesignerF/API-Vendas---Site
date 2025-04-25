@@ -25,7 +25,28 @@
     <link rel="icon" type="image/png" href="https://i.imgur.com/4402hkt.png" sizes="32x32">
 
     <title>API de Vendas - E-commerce por R$2,99/mês</title>
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- QR Code Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
 
     <!-- Schema.org JSON-LD -->
@@ -66,13 +87,17 @@
     }
     </script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans antialiased">
     <!-- Header -->
-    <header class="bg-blue-600 text-white py-6">
+    <header class="bg-blue-600 text-white py-6 shadow-md">
         <div class="container mx-auto px-4">
-            <img src="https://i.imgur.com/hDUOFKL.png" alt="Logo da API de Vendas" class="h-12 mb-4">
-            <h1 class="text-3xl font-bold">API de Vendas - E-commerce</h1>
-            <p class="mt-2">Gerencie seu e-commerce por apenas R$2,99/mês</p>
+            <div class="flex items-center space-x-4">
+                <img src="https://i.imgur.com/hDUOFKL.png" alt="Logo da API de Vendas" class="h-12 w-12">
+                <div>
+                    <h1 class="text-3xl font-bold">API de Vendas - E-commerce</h1>
+                    <p class="mt-1 text-blue-100">Gerencie seu e-commerce por apenas R$2,99/mês</p>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -80,123 +105,177 @@
     <main class="container mx-auto px-4 py-10">
         <!-- Features Section -->
         <section class="mb-12" aria-labelledby="features-heading">
-            <h2 id="features-heading" class="text-2xl font-semibold mb-6">Benefícios da Nossa API</h2>
+            <h2 id="features-heading" class="text-2xl font-semibold mb-6 text-gray-800">Benefícios da Nossa API</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-medium mb-2">Escalável</h3>
-                    <p>Cresça sem preocupações com segregação total de dados.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-expand-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2 text-gray-800">Escalável</h3>
+                    <p class="text-gray-600">Cresça sem preocupações com segregação total de dados.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-medium mb-2">Segura</h3>
-                    <p>Autenticação robusta para proteger suas operações.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-lock text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2 text-gray-800">Segura</h3>
+                    <p class="text-gray-600">Autenticação robusta para proteger suas operações.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-medium mb-2">Fácil de Usar</h3>
-                    <p>Integre rapidamente em seu site ou bot.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2 text-gray-800">Fácil de Usar</h3>
+                    <p class="text-gray-600">Integre rapidamente em seu site ou bot.</p>
                 </div>
             </div>
         </section>
 
         <!-- Purchase Section -->
         <section class="mb-12" aria-labelledby="purchase-heading">
-            <h2 id="purchase-heading" class="text-2xl font-semibold mb-6">Adquira Sua API Key</h2>
+            <h2 id="purchase-heading" class="text-2xl font-semibold mb-6 text-gray-800">Adquira Sua API Key</h2>
             <div class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
-                <p class="text-lg mb-4">Por apenas <span class="font-bold">R$2,99/mês</span>, receba sua API Key por email após confirmação do pagamento.</p>
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-key text-blue-600 mr-2"></i>
+                    <p class="text-lg text-gray-700">Por apenas <span class="font-bold text-blue-600">R$2,99/mês</span>, receba sua API Key por email após confirmação do pagamento.</p>
+                </div>
                 <form id="purchase-form">
                     <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Seu Email</label>
-                        <input type="email" id="email" class="mt-1 p-2 w-full border rounded-md" required aria-describedby="email-help">
-                        <p id="email-help" class="text-sm text-gray-500">Usaremos este email para enviar sua API Key.</p>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Seu Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" class="pl-10 mt-1 p-2 w-full border rounded-md focus:ring-blue-500 focus:border-blue-500" required aria-describedby="email-help">
+                        </div>
+                        <p id="email-help" class="mt-1 text-sm text-gray-500">Usaremos este email para enviar sua API Key.</p>
                     </div>
                     <div class="mb-4">
-                        <label for="platform" class="block text-sm font-medium text-gray-700">Nome da Plataforma</label>
-                        <input type="text" id="platform" class="mt-1 p-2 w-full border rounded-md" required aria-describedby="platform-help">
-                        <p id="platform-help" class="text-sm text-gray-500">Ex.: Minha Loja Online</p>
+                        <label for="platform" class="block text-sm font-medium text-gray-700 mb-1">Nome da Plataforma</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-store text-gray-400"></i>
+                            </div>
+                            <input type="text" id="platform" class="pl-10 mt-1 p-2 w-full border rounded-md focus:ring-blue-500 focus:border-blue-500" required aria-describedby="platform-help">
+                        </div>
+                        <p id="platform-help" class="mt-1 text-sm text-gray-500">Ex.: Minha Loja Online</p>
                     </div>
-                    <button id="generate-pix" type="button" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Gerar PIX (R$2,99)</button>
+                    <button id="generate-pix" type="button" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center">
+                        <i class="fas fa-qrcode mr-2"></i> Gerar PIX (R$2,99)
+                    </button>
                 </form>
                 <div id="pix-container" class="mt-4 hidden">
-                    <p class="text-center text-sm text-gray-600">Escaneie o QR Code ou copie o código PIX abaixo:</p>
-                    <div id="qrcode" class="mx-auto w-48 h-48 mt-2" aria-label="QR Code para pagamento PIX"></div>
-                    <textarea id="pix-code" class="mt-2 w-full p-2 border rounded-md text-sm" rows="4" readonly aria-label="Código PIX para pagamento"></textarea>
-                    <p class="mt-2 text-sm text-gray-600">Após o pagamento, sua API Key será enviada ao email em até 24h.</p>
+                    <p class="text-center text-sm text-gray-600 mb-3"><i class="fas fa-info-circle mr-1"></i> Escaneie o QR Code ou copie o código PIX abaixo:</p>
+                    <div id="qrcode" class="mx-auto w-48 h-48 mt-2 p-4 bg-white rounded border" aria-label="QR Code para pagamento PIX"></div>
+                    <textarea id="pix-code" class="mt-4 w-full p-2 border rounded-md text-sm font-mono" rows="4" readonly aria-label="Código PIX para pagamento"></textarea>
+                    <p class="mt-3 text-sm text-gray-600"><i class="fas fa-clock mr-1"></i> Após o pagamento, sua API Key será enviada ao email em até 24h.</p>
                 </div>
-                <p id="message" class="mt-4 text-center text-sm text-gray-600 hidden" role="alert"></p>
+                <p id="message" class="mt-4 text-center text-sm hidden" role="alert"></p>
             </div>
         </section>
 
         <!-- Instructions Section -->
         <section aria-labelledby="instructions-heading">
-            <h2 id="instructions-heading" class="text-2xl font-semibold mb-6">Como Funciona</h2>
+            <h2 id="instructions-heading" class="text-2xl font-semibold mb-6 text-gray-800">Como Funciona</h2>
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <ol class="list-decimal list-inside space-y-2">
-                    <li>Informe seu email e nome da plataforma.</li>
-                    <li>Gere o PIX e realize o pagamento de R$2,99.</li>
-                    <li>Aguarde a confirmação do pagamento (até 24h).</li>
-                    <li>Receba sua API Key por email com instruções.</li>
-                    <li>Use a API em: <a href="https://vendas-v2.discloud.app/" class="text-blue-600 hover:underline">vendas-v2.discloud.app</a></li>
+                <ol class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="flex items-center justify-center bg-blue-100 text-blue-600 rounded-full w-6 h-6 mr-3 flex-shrink-0">1</span>
+                        <span class="text-gray-700">Informe seu email e nome da plataforma.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex items-center justify-center bg-blue-100 text-blue-600 rounded-full w-6 h-6 mr-3 flex-shrink-0">2</span>
+                        <span class="text-gray-700">Gere o PIX e realize o pagamento de R$2,99.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex items-center justify-center bg-blue-100 text-blue-600 rounded-full w-6 h-6 mr-3 flex-shrink-0">3</span>
+                        <span class="text-gray-700">Aguarde a confirmação do pagamento (até 24h).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex items-center justify-center bg-blue-100 text-blue-600 rounded-full w-6 h-6 mr-3 flex-shrink-0">4</span>
+                        <span class="text-gray-700">Receba sua API Key por email com instruções.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex items-center justify-center bg-blue-100 text-blue-600 rounded-full w-6 h-6 mr-3 flex-shrink-0">5</span>
+                        <span class="text-gray-700">Use a API em: <a href="https://vendas-v2.discloud.app/" class="text-blue-600 hover:underline font-medium">vendas-v2.discloud.app</a></span>
+                    </li>
                 </ol>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p>© 2025 API de Vendas. Todos os direitos reservados.</p>
-            <p>Suporte: <a href="mailto:fortes.barman@gmail.com" class="hover:underline">fortes.barman@gmail.com</a></p>
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">© 2025 API de Vendas. Todos os direitos reservados.</p>
+                <p class="text-gray-400">
+                    <i class="fas fa-envelope mr-1"></i> Suporte: 
+                    <a href="mailto:fortes.barman@gmail.com" class="hover:underline text-blue-300">fortes.barman@gmail.com</a>
+                </p>
+            </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script defer>
-        document.getElementById('generate-pix').addEventListener('click', async () => {
-            const email = document.getElementById('email').value;
-            const platform = document.getElementById('platform').value;
-            const messageEl = document.getElementById('message');
-            const pixContainer = document.getElementById('pix-container');
-            const pixCodeEl = document.getElementById('pix-code');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('generate-pix').addEventListener('click', async () => {
+                const email = document.getElementById('email').value;
+                const platform = document.getElementById('platform').value;
+                const messageEl = document.getElementById('message');
+                const pixContainer = document.getElementById('pix-container');
+                const pixCodeEl = document.getElementById('pix-code');
 
-            if (!email || !platform) {
-                messageEl.textContent = 'Por favor, preencha todos os campos.';
-                messageEl.classList.remove('hidden', 'text-green-600');
-                messageEl.classList.add('text-red-600');
-                return;
-            }
-
-            messageEl.textContent = 'Gerando PIX...';
-            messageEl.classList.remove('hidden', 'text-red-600', 'text-green-600');
-
-            try {
-                const response = await fetch('https://vendas-v2.discloud.app/generate-pix-payment', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, platform_name: platform })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Erro ao gerar o PIX');
+                if (!email || !platform) {
+                    messageEl.textContent = 'Por favor, preencha todos os campos.';
+                    messageEl.classList.remove('hidden', 'text-green-600');
+                    messageEl.classList.add('text-red-600');
+                    messageEl.classList.remove('hidden');
+                    return;
                 }
 
-                const data = await response.json();
-                const pixPayload = data.pix_payload;
+                messageEl.textContent = 'Gerando PIX...';
+                messageEl.classList.remove('text-red-600', 'text-green-600');
+                messageEl.classList.add('text-blue-600');
+                messageEl.classList.remove('hidden');
 
-                // Exibir QR Code e código PIX
-                pixContainer.classList.remove('hidden');
-                document.getElementById('qrcode').innerHTML = '';
-                new QRCode(document.getElementById('qrcode'), {
-                    text: pixPayload,
-                    width: 192,
-                    height: 192
-                });
-                pixCodeEl.value = pixPayload;
+                try {
+                    const response = await fetch('https://vendas-v2.discloud.app/generate-pix-payment', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, platform_name: platform })
+                    });
 
-                messageEl.textContent = 'PIX gerado com sucesso! Realize o pagamento.';
-                messageEl.classList.add('text-green-600');
-            } catch (error) {
-                messageEl.textContent = error.message;
-                messageEl.classList.add('text-red-600');
-            }
+                    if (!response.ok) {
+                        throw new Error('Erro ao gerar o PIX');
+                    }
+
+                    const data = await response.json();
+                    const pixPayload = data.pix_payload;
+
+                    // Exibir QR Code e código PIX
+                    pixContainer.classList.remove('hidden');
+                    document.getElementById('qrcode').innerHTML = '';
+                    new QRCode(document.getElementById('qrcode'), {
+                        text: pixPayload,
+                        width: 192,
+                        height: 192,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                    pixCodeEl.value = pixPayload;
+
+                    messageEl.textContent = 'PIX gerado com sucesso! Realize o pagamento.';
+                    messageEl.classList.remove('text-blue-600', 'text-red-600');
+                    messageEl.classList.add('text-green-600');
+                } catch (error) {
+                    messageEl.textContent = error.message;
+                    messageEl.classList.remove('text-blue-600', 'text-green-600');
+                    messageEl.classList.add('text-red-600');
+                }
+            });
         });
     </script>
 </body>
